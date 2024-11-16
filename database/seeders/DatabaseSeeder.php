@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Car;
+use App\Models\CarBrand;
+use App\Models\CarModel;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        CarBrand::factory(5)->create()->each(function ($brand) {
+            $carModels = CarModel::factory(3)->create(['brand_id' => $brand->id]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+            $carModels->each(function ($carModel) use ($brand) {
+                Car::factory(2)->create([
+                    'brand_id' => $brand->id,
+                    'model_id' => $carModel->id,
+                ]);
+            });
+        });
     }
 }

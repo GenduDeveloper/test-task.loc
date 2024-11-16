@@ -12,9 +12,9 @@ return new class extends Migration {
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mark_id');
+            $table->unsignedBigInteger('brand_id');
 
-            $table->foreign('mark_id')
+            $table->foreign('brand_id')
                 ->references('id')
                 ->on('car_brands')
                 ->cascadeOnDelete();
