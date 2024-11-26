@@ -17,7 +17,6 @@ class CarBrandResource extends JsonResource
         return [
             'id' => $this->resource->id,
             'name' => $this->resource->name,
-            'created_at' => $this->resource->created_at->format('Y-m-d')
         ];
     }
 }

@@ -12,11 +12,10 @@ class CarBrandController extends Controller
 {
     public function index(CarBrandRepository $repository): JsonResponse
     {
-        $carBrands = $repository->getPaginatedCarBrands();
+        $carBrands = $repository->getBrands();
+
         return response()->json([
-            'data' => CarBrandResource::collection($carBrands),
-            'currentPage' => $carBrands->currentPage(),
-            'lastPage' => $carBrands->lastPage()
+            'brands' => CarBrandResource::collection($carBrands)
         ]);
     }
 }

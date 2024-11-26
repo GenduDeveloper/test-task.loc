@@ -11,12 +11,10 @@ class CarModelController extends Controller
 {
     public function index(CarModelRepository $repository): JsonResponse
     {
-        $carModels = $repository->getPaginatedCarModels();
+        $carModels = $repository->getModels();
 
         return response()->json([
-            'data' => CarModelResource::collection($carModels),
-            'currentPage' => $carModels->currentPage(),
-            'lastPage' => $carModels->lastPage()
+            'models' => CarModelResource::collection($carModels)
         ]);
     }
 }

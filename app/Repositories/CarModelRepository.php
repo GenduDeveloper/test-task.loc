@@ -3,16 +3,15 @@
 namespace App\Repositories;
 
 use App\Models\CarModel;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class CarModelRepository
 {
-    private const PER_PAGE = 3;
-
-    public function getPaginatedCarModels(): LengthAwarePaginator
+    public function getModels(): Collection
     {
-        return CarModel::query()
-            ->paginate(self::PER_PAGE);
+        return CarModel::query()->select('id', 'name', 'brand_id')
+            ->orderBy('name')
+            ->get();
     }
 }
 
