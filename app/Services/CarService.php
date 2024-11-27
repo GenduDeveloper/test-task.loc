@@ -20,14 +20,4 @@ class CarService
 
         return $car;
     }
-
-    public function update()
-    {
-        //
-    }
-
-    public function delete()
-    {
-
-    }
 }
