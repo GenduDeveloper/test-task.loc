@@ -13,4 +13,12 @@ class CarRepository
     {
         return Car::query()->paginate(self::PER_PAGE);
     }
+
+    public function getById(int $id): ?Car
+    {
+        /**
+         * @var Car|null
+         */
+        return Car::query()->findOrFail($id);
+    }
 }
