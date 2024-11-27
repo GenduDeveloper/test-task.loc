@@ -12,6 +12,7 @@ class CarBrandResource extends JsonResource
     {
         parent::__construct($resource);
     }
+
     public function toArray(Request $request): array
     {
         return [
