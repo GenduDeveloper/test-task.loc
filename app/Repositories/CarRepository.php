@@ -7,7 +7,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class CarRepository
 {
-    private const PER_PAGE = 5;
+    private const PER_PAGE = 4;
 
     public function getPaginatedCars(): LengthAwarePaginator
     {
